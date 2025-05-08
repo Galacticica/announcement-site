@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto mt-12 bg-white p-8 rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Create Announcement</h1>
+    <form method="post" enctype="multipart/form-data" class="space-y-6">
+        {% csrf_token %}
+        
+        <!-- Title Field -->
+        <div>
+            <label for="id_title" class="block text-sm font-medium text-gray-700">Title</label>
+            {{ form.title }}
+            {% if form.title.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.title.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Description Field -->
+        <div>
+            <label for="id_description" class="block text-sm font-medium text-gray-700">Description</label>
+            {{ form.description }}
+            {% if form.description.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.description.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Start Date Field -->
+        <div>
+            <label for="id_start_date" class="block text-sm font-medium text-gray-700">Start Date</label>
+            {{ form.start_date }}
+            {% if form.start_date.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.start_date.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- End Date Field -->
+        <div>
+            <label for="id_end_date" class="block text-sm font-medium text-gray-700">End Date</label>
+            {{ form.end_date }}
+            {% if form.end_date.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.end_date.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Image Field -->
+        <div>
+            <label for="id_image" class="block text-sm font-medium text-gray-700">Image</label>
+            {{ form.image }}
+            {% if form.image.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.image.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Chapel Field -->
+        <div>
+            <label for="id_chapel" class="block text-sm font-medium text-gray-700">Chapel</label>
+            {{ form.chapel }}
+            {% if form.chapel.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.chapel.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Praise Field -->
+        <div>
+            <label for="id_praise" class="block text-sm font-medium text-gray-700">Praise</label>
+            {{ form.praise }}
+            {% if form.praise.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.praise.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center">
+            <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 shadow-md">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

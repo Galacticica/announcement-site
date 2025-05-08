@@ -7,8 +7,29 @@ class AnnouncementForm(forms.ModelForm):
         model = Announcement
         fields = ['title', 'description', 'start_date', 'end_date', 'image', 'chapel', 'praise']
         widgets = {
-            'start_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-            'end_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'title': forms.TextInput(attrs={
+                'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500'
+            }),
+            'description': forms.Textarea(attrs={
+                'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500'
+            }),
+            'start_date': forms.DateTimeInput(attrs={
+                'type': 'datetime-local',
+                'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500'
+            }),
+            'end_date': forms.DateTimeInput(attrs={
+                'type': 'datetime-local',
+                'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500'
+            }),
+            'image': forms.ClearableFileInput(attrs={
+                'class': 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500'
+            }),
+            'chapel': forms.CheckboxInput(attrs={
+                'class': 'h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500'
+            }),
+            'praise': forms.CheckboxInput(attrs={
+                'class': 'h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500'
+            }),
         }
 
     def clean(self):
